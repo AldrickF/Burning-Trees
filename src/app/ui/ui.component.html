@@ -1,0 +1,61 @@
+<div class="ui-container">
+    <h1>Simulation d'un feu de forêt</h1>
+
+    <p>
+        Les arbres intacts (vert) voisins des arbres actuellement en feu (rouge) sont susceptibles d'être enflammés
+        à la prochaine étape d'une probabilité (p), alors que les arbres actuellement en feu deviendront des cendres (gris).
+    </p>
+
+    <hr class="py-2"/>
+
+    <h2>Paramètres</h2>
+
+    <div class="form-group row">
+        <label for="width" class="col-sm-6 col-form-label">Largeur</label>
+        <div class="col-sm-6">
+          <input #width (input)="setGridSize()" type="number" class="form-control" id="width" min=1 max=100 value=15>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="height" class="col-sm-6 col-form-label">Hauteur</label>
+        <div class="col-sm-6">
+          <input #height (input) ="setGridSize()" type="number" class="form-control" id="height" min=1 max=100 value=15>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="fireSpread" class="col-sm-6 col-form-label">Propager le feu (p)</label>
+        <div class="col-sm-6">
+          <input #fireSpread (input)="setFireSpreadRate()" type="number" class="form-control" id="fireSpread" min=0 max=1 value=0.5 step=0.1>
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="form-group row">
+        <label for="randomFireRate" class="col-sm-6 col-form-label">Densité du feu (random)</label>
+        <div class="col-sm-6">
+          <input #randomFireRate type="number" class="form-control" id="randomFireRate" min=0 max=1 value=0.2 step=0.05>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="randomFireRate" class="col-sm-6 col-form-label">Durée entre chaque étape (tic)</label>
+        <div class="col-sm-6">
+          <input #fireTicRate type="number" class="form-control" id="randomFireRate" min=0.5 max=10 value=1 step=0.5>
+        </div>
+    </div>
+
+    <hr class="py-2"/>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button (click)="clearGrid()" type="button" class="btn btn-secondary me-1"><i class="fa-solid fa-eraser"></i>&nbsp;Effacer</button>
+            <button (click)="setRandomFireCells()" type="button" class="btn btn-secondary me-1"><i class="fa-solid fa-rotate-right"></i>&nbsp;Random</button>
+            <button (click)="setPlayMode()" type="button" class="btn btn-danger me-1"><i class="fa-solid fa-fire"></i>&nbsp;<span #playButtonText>Start</span></button>
+        </div>
+    </div>
+
+
+</div>

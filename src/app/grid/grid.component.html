@@ -1,0 +1,17 @@
+
+  <div *ngIf="grid != undefined" class="grid-container">
+    <div class="grid">
+    <div
+      *ngFor="let row of grid.cells; let rowIndex = index"
+      class="row"
+    >
+      <div
+        *ngFor="let cellColor of row; let colIndex = index"
+        class="col cell"
+        [style.background-color]="getCellColor(rowIndex, colIndex)"
+        (click)="changeCellState(rowIndex, colIndex)"
+   
+      ></div>
+    </div>
+  </div>
+</div>
